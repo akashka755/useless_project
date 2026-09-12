@@ -78,7 +78,7 @@ For Software:
 ![Screenshot2](./screenshots/authentication.png)
 *The Quantum Authentication modal featuring an unblinking eye and AI Webcam head tracker that locks authentication at 0% whenever the user looks at their screen.*
 
-![Screenshot3](./scrreenshots/dinorun.png)
+![Screenshot3](./screenshots/dinorun.png)
 *The playable 2D HTML5 canvas runner game where players jump over Excel spreadsheets and Slack pings to unlock the Black Obsidian Debt Card.*
 
 ![Screenshot4](./screenshots/dinorun.png)
