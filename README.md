@@ -72,10 +72,10 @@ npm run dev
 For Software:
 
 # Screenshots
-![Screenshot1](screenshots/homepage.png)
+![Screenshot1](./screenshots/homepage.png)
 *The Chaotic Flopkart Homepage featuring the signature corporate blue banner advertising "0% Off Sale! Pay full price today!" and the runaway "Deal of the Minute" countdown timer.*
 
-![Screenshot2](/screenshots/authentication.png)
+![Screenshot2](./screenshots/authentication.png)
 *The Quantum Authentication modal featuring an unblinking eye and AI Webcam head tracker that locks authentication at 0% whenever the user looks at their screen.*
 
 ![Screenshot3](./screenshots/dinorun.png)
