@@ -72,19 +72,19 @@ npm run dev
 For Software:
 
 # Screenshots
-![Screenshot1](screenshots/homepage.png)
+![Screenshot1](./screenshots/homepage.png)
 *The Chaotic Flopkart Homepage featuring the signature corporate blue banner advertising "0% Off Sale! Pay full price today!" and the runaway "Deal of the Minute" countdown timer.*
 
-![Screenshot2](screenshots/authentication.png)
+![Screenshot2](./screenshots/authentication.png)
 *The Quantum Authentication modal featuring an unblinking eye and AI Webcam head tracker that locks authentication at 0% whenever the user looks at their screen.*
 
-![Screenshot3](scrreenshots/dinorun.png)
+![Screenshot3](./scrreenshots/dinorun.png)
 *The playable 2D HTML5 canvas runner game where players jump over Excel spreadsheets and Slack pings to unlock the Black Obsidian Debt Card.*
 
-![Screenshot4](screenshots/dinorun.png)
+![Screenshot4](./screenshots/dinorun.png)
 *The Aggravating Cart with a real-time mouse speed odometer dynamically inflating the bill and an evading "Proceed to Checkout" button dodging the cursor.*
 
-![Screenshot5](screenshots/payment.png)
+![Screenshot5](./screenshots/payment.png)
 *The Insecure Payment Gateway with interactive Crayon I.O.U. canvas, culminating in full-screen fireworks and a printable bogus invoice.*
 
 # Diagrams
