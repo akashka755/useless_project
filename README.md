@@ -67,7 +67,7 @@ npm install
 ```bash
 # Start the development server with local and network host exposure
 npm run dev
-
+```
 ### Project Documentation
 For Software:
 
