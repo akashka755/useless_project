@@ -129,7 +129,8 @@ For Software:
 
 ### Project Demo
 # Video
-[Add your demo video link here]
+[View Project Video on Google Drive]([https://drive.google.com/drive/folders/YOUR_FOLDER_ID](https://drive.google.com/drive/folders/1A15k4J81IfGvMP_6kyt2_AdFxEkw7_By?usp=sharing))
+
 *A walkthrough showcasing the Quantum look-away login, the 30% cart escape probability, the mouse panic surcharge, the Dinosaur runner game, and the crayon payment checkout.*
 
 # Additional Demos
