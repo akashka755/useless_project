@@ -72,7 +72,7 @@ npm run dev
 For Software:
 
 # Screenshots
-![Screenshot1](/screenshots/homepage.png)
+![Screenshot1](screenshots/homepage.png)
 *The Chaotic Flopkart Homepage featuring the signature corporate blue banner advertising "0% Off Sale! Pay full price today!" and the runaway "Deal of the Minute" countdown timer.*
 
 ![Screenshot2](/screenshots/authentication.png)
