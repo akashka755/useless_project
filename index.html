@@ -1,1 +1,555 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Flopkart — India's #1 Defective Marketplace</title>
+<meta name="description" content="A fully working online store engineered to disappoint you at every step. Universal search returns a damp box, carts run away, and support is actively hostile. See it live." />
 
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Flopkart — India's #1 Defective Marketplace" />
+<meta property="og:description" content="A fully working online store engineered to disappoint you at every step. Open it and find out why." />
+<meta property="og:url" content="https://useless-project-o78o.vercel.app/" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect x='4' y='4' width='40' height='40' fill='%23C3A06B' stroke='%23211D17' stroke-width='2'/%3E%3Cpath d='M4 4l40 40M44 4L4 44' stroke='%23AF272D' stroke-width='4'/%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@700;900&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --kraft: #C3A06B;
+    --kraft-deep: #8B6B3D;
+    --kraft-shadow: #5C4526;
+    --ink: #211D17;
+    --paper: #F3ECDA;
+    --paper-dim: #E8DEC2;
+    --stamp-red: #AF272D;
+    --hazard: #E3A63A;
+    --kraft-text: #443119;
+    --hazard-text: #8F5F16;
+    --max: 1080px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin: 0;
+    background-color: var(--kraft);
+    background-image:
+      repeating-linear-gradient(115deg, rgba(0,0,0,0.05) 0px, rgba(0,0,0,0.05) 1px, transparent 1px, transparent 7px);
+    color: var(--ink);
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, .stencil{
+    font-family: "Big Shoulders Stencil Display", "Arial Narrow", sans-serif;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    line-height: 0.92;
+    margin: 0;
+  }
+
+  a{ color: inherit; }
+
+  :focus-visible{
+    outline: 3px solid var(--hazard);
+    outline-offset: 2px;
+  }
+
+  .wrap{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .barcode{ display:block; height: 22px; opacity: 0.8; }
+  .barcode rect{ fill: currentColor; }
+
+  /* ---------- NAV ---------- */
+  .nav{
+    padding: 22px 0;
+    border-bottom: 2px solid var(--kraft-shadow);
+  }
+  .nav .wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .brand{
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .brand-mark{
+    font-size: 26px;
+    color: var(--ink);
+  }
+  .brand-sub{
+    font-size: 10.5px;
+    color: var(--kraft-text);
+    letter-spacing: 0.08em;
+  }
+  .nav-cta{
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    color: var(--ink);
+    padding: 9px 16px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 120ms ease, color 120ms ease;
+  }
+  .nav-cta:hover{
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding: 74px 0 60px;
+    text-align: center;
+    position: relative;
+  }
+  .waybill{
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin: 0 0 30px;
+    padding: 8px 16px;
+    background: var(--paper);
+    border: 1px solid var(--kraft-shadow);
+    font-size: 11px;
+    color: var(--kraft-shadow);
+  }
+  .waybill span:not(:last-child){
+    border-right: 1px solid var(--kraft-shadow);
+    padding-right: 14px;
+  }
+
+  .hero-mark{
+    position: relative;
+    display: inline-block;
+    margin-bottom: 26px;
+  }
+  .hero-mark h1{
+    font-size: clamp(64px, 15vw, 160px);
+    color: var(--ink);
+  }
+  .stamp{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-9deg);
+    background: var(--paper);
+    border: 4px double var(--stamp-red);
+    color: var(--stamp-red);
+    padding: 7px 16px;
+    font-size: clamp(13px, 2.6vw, 20px);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    animation: stampDown 900ms 400ms cubic-bezier(.2,.8,.2,1) both;
+  }
+  @keyframes stampDown{
+    0%   { opacity: 0; transform: translate(-50%,-70%) rotate(-9deg) scale(2.6); }
+    55%  { opacity: 1; transform: translate(-50%,-50%) rotate(-10deg) scale(0.92); }
+    75%  { transform: translate(-50%,-50%) rotate(-7deg) scale(1.05); }
+    100% { opacity: 1; transform: translate(-50%,-50%) rotate(-9deg) scale(1); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .stamp{ animation: none; opacity: 1; }
+  }
+
+  .hero-line{
+    max-width: 46ch;
+    margin: 0 auto 6px;
+    font-size: clamp(17px, 2.4vw, 21px);
+    font-weight: 600;
+  }
+  .hero-sub{
+    max-width: 52ch;
+    margin: 0 auto 34px;
+    font-size: 14px;
+    color: var(--kraft-text);
+  }
+
+  .btn-primary{
+    display: inline-block;
+    background: var(--stamp-red);
+    color: var(--paper);
+    border: 2px solid var(--ink);
+    padding: 16px 34px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    text-transform: uppercase;
+    box-shadow: 5px 5px 0 var(--ink);
+    transition: transform 120ms ease, box-shadow 120ms ease;
+  }
+  .btn-primary:hover{
+    transform: translate(2px, 2px);
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .hero-url{
+    display: block;
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--kraft-text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ---------- TEAR LINE ---------- */
+  .tear{
+    height: 1px;
+    background-image: repeating-linear-gradient(to right, var(--ink) 0 7px, transparent 7px 15px);
+    opacity: 0.3;
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{ padding: 64px 0; }
+  .section-head{
+    max-width: 62ch;
+    margin: 0 auto 34px;
+    text-align: center;
+  }
+  .section-head h2{
+    font-size: clamp(30px, 5vw, 46px);
+    margin-bottom: 10px;
+  }
+  .section-head p{
+    font-size: 13.5px;
+    color: var(--kraft-text);
+    margin: 0;
+  }
+
+  /* ---------- MANIFEST ---------- */
+  .manifest-list{
+    background: var(--paper);
+    border: 1px solid var(--kraft-shadow);
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .manifest-row{
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 4px 18px;
+    padding: 18px 22px;
+    border-bottom: 1px dashed var(--kraft-shadow);
+  }
+  .manifest-row:last-child{ border-bottom: none; }
+  .manifest-num{
+    color: var(--hazard-text);
+    font-weight: 700;
+    font-size: 13px;
+    padding-top: 2px;
+  }
+  .manifest-title{
+    font-weight: 700;
+    font-size: 14.5px;
+    margin: 0 0 4px;
+  }
+  .manifest-desc{
+    margin: 0;
+    font-size: 13px;
+    color: #47402f;
+  }
+  @media (max-width: 560px){
+    .manifest-row{ grid-template-columns: 1fr; }
+    .manifest-num{ padding-top: 0; }
+  }
+
+  /* ---------- CATALOG ---------- */
+  .catalog-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+  .catalog-card{
+    background: var(--paper);
+    border: 1px solid var(--kraft-shadow);
+    padding: 20px;
+  }
+  .catalog-icon{
+    width: 44px;
+    height: 44px;
+    border: 1px dashed var(--kraft-shadow);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    color: var(--stamp-red);
+  }
+  .catalog-icon svg{ width: 24px; height: 24px; }
+  .catalog-card h3{
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0 0 6px;
+  }
+  .catalog-card p{
+    font-size: 12.5px;
+    color: #47402f;
+    margin: 0;
+  }
+
+  /* ---------- GUARANTEE ---------- */
+  .guarantee{
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+    background: var(--paper);
+    border: 4px double var(--stamp-red);
+    padding: 34px 28px;
+  }
+  .guarantee h2{
+    font-size: clamp(24px, 4vw, 34px);
+    color: var(--stamp-red);
+    margin-bottom: 12px;
+  }
+  .guarantee p{
+    font-size: 13.5px;
+    margin: 0;
+    max-width: 46ch;
+    margin-inline: auto;
+  }
+
+  /* ---------- CTA BAND ---------- */
+  .cta-band{
+    text-align: center;
+  }
+  .cta-band h2{
+    font-size: clamp(30px, 6vw, 54px);
+    margin-bottom: 22px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  .site-footer{
+    border-top: 2px solid var(--kraft-shadow);
+    padding: 30px 0 40px;
+    font-size: 11.5px;
+    color: var(--kraft-text);
+  }
+  .site-footer .wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    text-align: center;
+  }
+  .site-footer p{ margin: 0; max-width: 52ch; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <div class="brand">
+      <span class="brand-mark stencil">FLOPKART</span>
+      <span class="brand-sub">INTERNET AGONY PVT. LTD.</span>
+    </div>
+    <a class="nav-cta" href="https://useless-project-o78o.vercel.app/" target="_blank" rel="noopener">Open the store</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="waybill">
+        <span>TRACKING: FLOP-000-0001</span>
+        <span>CONTENTS: REGRET</span>
+        <span>HANDLE: THIS SIDE DOWN</span>
+      </div>
+
+      <div class="hero-mark">
+        <h1 class="stencil">FLOPKART</h1>
+        <div class="stamp">0% Quality Guaranteed</div>
+      </div>
+
+      <p class="hero-line">Every feature here was a mistake. We shipped it anyway.</p>
+      <p class="hero-sub">A fully working online store, deployed and live, engineered to fail you at search, checkout, customer support, and everywhere in between.</p>
+
+      <a class="btn-primary" href="https://useless-project-o78o.vercel.app/" target="_blank" rel="noopener">Open Flopkart</a>
+      <a class="hero-url" href="https://useless-project-o78o.vercel.app/" target="_blank" rel="noopener">useless-project-o78o.vercel.app</a>
+    </div>
+  </section>
+
+  <div class="tear"></div>
+
+  <section class="manifest">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="stencil">What's actually inside</h2>
+        <p>Itemized, as required by law. Every line below is a real, working part of the store.</p>
+      </div>
+
+      <div class="manifest-list">
+        <div class="manifest-row">
+          <div class="manifest-num">001</div>
+          <div>
+            <p class="manifest-title">Sign in, two dubious ways</p>
+            <p class="manifest-desc">Pick every image that represents everyday corporate dread, or switch to Quantum Look-Away Login — a sign-in bar that freezes at 0% the instant you look at it, and only fills once you look away.</p>
+          </div>
+        </div>
+        <div class="manifest-row">
+          <div class="manifest-num">002</div>
+          <div>
+            <p class="manifest-title">A search bar with one true answer</p>
+            <p class="manifest-desc">Search for anything — a phone, shoes, happiness — and the algorithm returns exactly one product: a slightly damp cardboard box.</p>
+          </div>
+        </div>
+        <div class="manifest-row">
+          <div class="manifest-num">003</div>
+          <div>
+            <p class="manifest-title">A cart with legs</p>
+            <p class="manifest-desc">Items you add don't always stay added. Some escape the cart entirely before you make it to checkout.</p>
+          </div>
+        </div>
+        <div class="manifest-row">
+          <div class="manifest-num">004</div>
+          <div>
+            <p class="manifest-title">The Wheel of Misfortune</p>
+            <p class="manifest-desc">Spin for your fate: a 15% surcharge, a six-month delivery delay, a damp box forced into your cart, or nothing at all.</p>
+          </div>
+        </div>
+        <div class="manifest-row">
+          <div class="manifest-num">005</div>
+          <div>
+            <p class="manifest-title">Babloo, customer support</p>
+            <p class="manifest-desc">A live-chat agent whose only real function is confirming that whatever went wrong is your fault, then closing the ticket.</p>
+          </div>
+        </div>
+        <div class="manifest-row">
+          <div class="manifest-num">006</div>
+          <div>
+            <p class="manifest-title">The Depressed Dinosaur Run</p>
+            <p class="manifest-desc">An endless runner about corporate burnout. Clear it to unlock the store's most exclusive item: a credit card that starts you deep in debt.</p>
+          </div>
+        </div>
+        <div class="manifest-row">
+          <div class="manifest-num">007</div>
+          <div>
+            <p class="manifest-title">Filters that do nothing</p>
+            <p class="manifest-desc">Every sidebar filter flashes the screen red, shows a confident confirmation message, and changes exactly zero results.</p>
+          </div>
+        </div>
+        <div class="manifest-row">
+          <div class="manifest-num">008</div>
+          <div>
+            <p class="manifest-title">Checkout, reinvented badly</p>
+            <p class="manifest-desc">Pay with Monopoly money, sign for your order in crayon, or hold down a handshake button for five uncomfortable seconds.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="tear"></div>
+
+  <section class="catalog">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="stencil">Best sellers, allegedly</h2>
+        <p>A preview of the catalog. All items in stock, none recommended.</p>
+      </div>
+
+      <div class="catalog-grid">
+        <div class="catalog-card">
+          <div class="catalog-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 8c-8 0-14 5-14 12s5 11 12 11 10-4 10-9-3-8-8-8-6 2-6 6 2 5 5 5"/></svg>
+          </div>
+          <h3>Wireless Charging Cable, Jute Edition</h3>
+          <p>0 volts delivered. 100% tangle-ready straight out of the box.</p>
+        </div>
+
+        <div class="catalog-card">
+          <div class="catalog-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="18" width="40" height="12" rx="6"/><line x1="24" y1="18" x2="24" y2="30"/></svg>
+          </div>
+          <h3>Dehydrated Water Capsules</h3>
+          <p>Add 200ml of water to produce exactly 200ml of water.</p>
+        </div>
+
+        <div class="catalog-card">
+          <div class="catalog-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 33c0-3 2-5 5-6l10-3c2-4 6-8 11-8 1 3 3 6 6 7 4 1 8 4 8 8 0 2-1 3-3 3H9c-1 0-2-0.5-2-1z"/></svg>
+          </div>
+          <h3>Pre-Scuffed Left Sneaker</h3>
+          <p>Right shoe available separately, on a monthly subscription.</p>
+        </div>
+
+        <div class="catalog-card">
+          <div class="catalog-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="9" r="2.6"/><path d="M24 11.5v2.8c0 1.4-1 2-1.9 2.7L8 27.5c-2 1.4-1 4.2 1.5 4.2h29c2.5 0 3.5-2.8 1.5-4.2L25.9 17c-0.9-0.7-1.9-1.3-1.9-2.7v-2.8"/><line x1="13" y1="33.5" x2="35" y2="33.5"/></svg>
+          </div>
+          <h3>Certified Refurbished Invisibility Cloak</h3>
+          <p>Visually indistinguishable from a wooden coat hanger.</p>
+        </div>
+
+        <div class="catalog-card">
+          <div class="catalog-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="8"/><line x1="24" y1="4" x2="24" y2="10"/><line x1="24" y1="38" x2="24" y2="44"/><line x1="4" y1="24" x2="10" y2="24"/><line x1="38" y1="24" x2="44" y2="24"/><line x1="10" y1="10" x2="14" y2="14"/><line x1="34" y1="34" x2="38" y2="38"/><line x1="10" y1="38" x2="14" y2="34"/><line x1="34" y1="14" x2="38" y2="10"/></svg>
+          </div>
+          <h3>Helios Solar Flashlight</h3>
+          <p>Works brilliantly in direct sunlight. Useless after dark.</p>
+        </div>
+
+        <div class="catalog-card">
+          <div class="catalog-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="12" width="40" height="26" rx="3"/><line x1="4" y1="20" x2="44" y2="20"/><line x1="10" y1="30" x2="20" y2="30"/></svg>
+          </div>
+          <h3>Infinite Debt Pass, Black Obsidian</h3>
+          <p>Opens at ₹-99,99,999. Locked behind the Dinosaur Run.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="guarantee-wrap">
+    <div class="wrap">
+      <div class="guarantee">
+        <h2 class="stencil">The Flopkart Defect Guarantee™</h2>
+        <p>If your item arrives functional or in working order, please return it immediately so our quality destruction team can break it properly.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <h2 class="stencil">Go see it break</h2>
+      <a class="btn-primary" href="https://useless-project-o78o.vercel.app/" target="_blank" rel="noopener">Open Flopkart</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <svg class="barcode" viewBox="0 0 258 40" aria-hidden="true">
+      <rect x="0" width="1" height="40"/><rect x="3" width="3" height="40"/><rect x="9" width="2" height="40"/><rect x="14" width="1" height="40"/><rect x="17" width="1" height="40"/><rect x="20" width="1" height="40"/><rect x="23" width="2" height="40"/><rect x="28" width="1" height="40"/><rect x="32" width="1" height="40"/><rect x="36" width="2" height="40"/><rect x="40" width="1" height="40"/><rect x="44" width="1" height="40"/><rect x="47" width="3" height="40"/><rect x="53" width="2" height="40"/><rect x="57" width="1" height="40"/><rect x="60" width="1" height="40"/><rect x="63" width="4" height="40"/><rect x="69" width="3" height="40"/><rect x="74" width="2" height="40"/><rect x="78" width="1" height="40"/><rect x="81" width="3" height="40"/><rect x="86" width="2" height="40"/><rect x="90" width="1" height="40"/><rect x="94" width="3" height="40"/><rect x="99" width="2" height="40"/><rect x="103" width="1" height="40"/><rect x="106" width="2" height="40"/><rect x="110" width="2" height="40"/><rect x="114" width="4" height="40"/><rect x="121" width="3" height="40"/><rect x="126" width="2" height="40"/><rect x="131" width="2" height="40"/><rect x="137" width="1" height="40"/><rect x="140" width="2" height="40"/><rect x="144" width="1" height="40"/><rect x="148" width="1" height="40"/><rect x="151" width="1" height="40"/><rect x="154" width="1" height="40"/><rect x="158" width="4" height="40"/><rect x="165" width="2" height="40"/><rect x="171" width="2" height="40"/><rect x="176" width="3" height="40"/><rect x="182" width="2" height="40"/><rect x="186" width="1" height="40"/><rect x="191" width="4" height="40"/><rect x="198" width="2" height="40"/><rect x="204" width="1" height="40"/><rect x="207" width="1" height="40"/><rect x="211" width="2" height="40"/><rect x="217" width="1" height="40"/><rect x="222" width="1" height="40"/><rect x="227" width="3" height="40"/><rect x="232" width="1" height="40"/><rect x="235" width="4" height="40"/><rect x="241" width="3" height="40"/><rect x="248" width="2" height="40"/><rect x="254" width="1" height="40"/>
+    </svg>
+    <p>Flopkart Internet Agony Private Limited. A satirical shopping experience, built for the joke and nothing else. Nothing on this page is in stock, functional, or a good idea.</p>
+    <p>© 2007–2026 Flopkart.com. Parody engineered with 100% satirical precision.</p>
+  </div>
+</footer>
+
+</body>
+</html>
